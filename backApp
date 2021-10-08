@@ -1,0 +1,65 @@
+<ul>
+      {
+        dataUse.forEach((item,index) => (
+          <li> {item }</li>
+        ))
+      }
+    </ul>
+
+////////////////////////////////////////////////
+
+import React, {  useEffect } from 'react'
+
+
+const Nosotros = () =>
+{
+  const [equipo,setEquipo] = React.useState([])
+  
+  const yunk =
+    {
+      "times": [
+          1632493603.941964
+      ],
+      "blues": [
+          50,
+          50
+      ],
+      "id": "2728",
+      "score": [
+          1,
+          2,
+          3
+      ],
+      "nombre": "juanito"
+  }
+   
+React.useEffect(()=>{
+  
+  document.title='Goal-Lab'
+  
+  obtenerDatos()
+  console.log(equipo)
+},[])
+
+const obtenerDatos = async () => {
+  
+  const user= 2728
+  const url = 'https://us-central1-python-fire-be2e4.cloudfunctions.net/app/api/results/'+ user
+  //const url= 'https://jsonplaceholder.typicode.com/users'
+  const data= await fetch(url)
+  const users = await data.json()
+  //console.log(users)
+  setEquipo(users)
+  console.log(users)
+}
+
+return (
+  <div>
+    kih
+  
+
+  </div>
+)
+}
+
+export default Nosotros 
